@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle del Prospecto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contact-detail">
+    <div class="contact-avatar">
+      <ion-avatar>
+        <img src="{{ contact.photo }}">
+      </ion-avatar>
+    </div>
+    <h2>{{ contact.name }}</h2>
+    <div class="actions">
+      <ion-button color="success" (click)="openWhatsApp(contact)"><ion-icon
+          name="logo-whatsapp"></ion-icon></ion-button>
+      <ion-button color="primary" (click)="sendEmail(contact)"><ion-icon name="mail"></ion-icon></ion-button>
+      <ion-button color="tertiary" (click)="editContact(contact)"><ion-icon name="create"></ion-icon></ion-button>
+      <ion-button color="danger" (click)="deleteContact(contact)"><ion-icon
+          name="trash-outline"></ion-icon></ion-button>
+    </div>
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <p class="contact-info-text">Teléfono: {{ contact.phone }}</p>
+        <ion-icon name="call" class="contact-info-icon"></ion-icon>
+      </div>
+      <div class="contact-info-item">
+        <p class="contact-info-text">Email: {{ contact.email }}</p>
+        <ion-icon name="mail" class="contact-info-icon"></ion-icon>
+      </div>
+    </div>
+    <ion-button color="warning" (click)="goToSeguimiento(contact)"><ion-icon name="clipboard"></ion-icon> Dar
+      seguimiento</ion-button>
+  </div>
+</ion-content>

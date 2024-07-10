@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isNewContact ? 'Agregar Prospecto' : 'Editar Prospecto' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="contact.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input [(ngModel)]="contact.phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="contact.email"></ion-input>
+    </ion-item>
+    <!--<ion-item>
+      <ion-label position="floating">Foto</ion-label>
+      <ion-input [(ngModel)]="contact.photo"></ion-input>
+    </ion-item>-->
+  </ion-list>
+  <div class="buttons">
+    <ion-button expand="block" (click)="saveContact()">{{ isNewContact ? 'Agregar' : 'Guardar' }}</ion-button>
+  </div>
+</ion-content>

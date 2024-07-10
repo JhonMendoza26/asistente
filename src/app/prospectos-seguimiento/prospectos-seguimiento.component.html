@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Seguimiento Contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-container">
+    <ion-avatar class="center-avatar">
+      <img [src]="contact.photo" alt="Profile Picture">
+    </ion-avatar>
+    <h2 class="center-text">{{ contact.name }}</h2>
+    <div class="status-bar">
+      <div *ngFor="let step of steps" class="status-step" [class.active]="step.id === currentStep.id">
+        {{ step.name }}
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <h3 class="center-text">{{ currentStep.title }}</h3>
+    <!--<ion-button expand="block" (click)="handleButtonClick()">{{ currentStep.buttonText }}</ion-button>-->
+    <ion-button expand="block" (click)="handleButtonClick()">Dar seguimiento</ion-button>
+  </div>
+</ion-content>

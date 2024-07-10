@@ -1,0 +1,34 @@
+.contact-detail {
+  text-align: center;
+}
+
+.contact-avatar {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.contact-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 10px 0;
+}
+
+.contact-info-text {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.contact-info-icon {
+  font-size: 1.5em;
+  margin-left: 10px;
+}
