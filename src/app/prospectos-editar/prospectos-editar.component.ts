@@ -10,7 +10,7 @@ import { NavController } from '@ionic/angular';
 })
 export class ProspectosEditarComponent implements OnInit {
 
-  contact: Contact = { id: '', name: '', photo: 'assets/img/user1.png', phone: '', email: '' };
+  contact: Contact = { id: '', name: '', photo: 'assets/img/user1.png', phone: '', email: '', status: 0 };
   isNewContact: boolean = false;
   @Output() contactSaved = new EventEmitter<void>();
 
@@ -18,7 +18,6 @@ export class ProspectosEditarComponent implements OnInit {
 
   ngOnInit() {
     const contactId = this.route.snapshot.paramMap.get('id');
-    console.log('Param Edit: ' + contactId);
     if (contactId === 'new') {
       this.isNewContact = true;
     } else if (contactId) {

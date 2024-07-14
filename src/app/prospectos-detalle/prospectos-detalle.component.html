@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button>Atras</ion-back-button>
     </ion-buttons>
     <ion-title>Detalle del Prospecto</ion-title>
   </ion-toolbar>
@@ -23,17 +23,34 @@
       <ion-button color="danger" (click)="deleteContact(contact)"><ion-icon
           name="trash-outline"></ion-icon></ion-button>
     </div>
-    <div class="contact-info">
-      <div class="contact-info-item">
-        <p class="contact-info-text">Teléfono: {{ contact.phone }}</p>
-        <ion-icon name="call" class="contact-info-icon"></ion-icon>
-      </div>
-      <div class="contact-info-item">
-        <p class="contact-info-text">Email: {{ contact.email }}</p>
-        <ion-icon name="mail" class="contact-info-icon"></ion-icon>
-      </div>
-    </div>
-    <ion-button color="warning" (click)="goToSeguimiento(contact)"><ion-icon name="clipboard"></ion-icon> Dar
-      seguimiento</ion-button>
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Telefono</p>
+            <h2>{{ formatPhoneNumber(contact.phone) }}</h2>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon name="call-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Correo</p>
+            <h2>{{ contact.email}}</h2>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon name="mail-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button color="tertiary" (click)="goToSeguimiento(contact)">Dar
+      seguimiento <ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
   </div>
 </ion-content>

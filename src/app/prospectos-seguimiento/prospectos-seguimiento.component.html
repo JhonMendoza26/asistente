@@ -7,21 +7,50 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="profile-container">
-    <ion-avatar class="center-avatar">
-      <img [src]="contact.photo" alt="Profile Picture">
-    </ion-avatar>
-    <h2 class="center-text">{{ contact.name }}</h2>
-    <div class="status-bar">
-      <div *ngFor="let step of steps" class="status-step" [class.active]="step.id === currentStep.id">
-        {{ step.name }}
-      </div>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title class="card-title">{{ contact.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="profile-section">
+      <ion-avatar>
+        <img [src]="contact.photo" alt="Profile Picture" />
+      </ion-avatar>
     </div>
-  </div>
-  <div class="content-section">
-    <h3 class="center-text">{{ currentStep.title }}</h3>
-    <!--<ion-button expand="block" (click)="handleButtonClick()">{{ currentStep.buttonText }}</ion-button>-->
-    <ion-button expand="block" (click)="handleButtonClick()">Dar seguimiento</ion-button>
-  </div>
+    <div class="status-section">
+      <p>{{ taskUser.firstNameTask }}</p>
+      <ion-progress-bar [value]="taskUser.firstValueBarTaks" color="success"></ion-progress-bar>
+      <p>{{ taskUser.firstPercentageTask }}%</p>
+    </div>
+    <ion-button expand="full" (click)="handleButtonClick(taskUser.nextStatusTask)">
+      Avanzar a {{ taskUser.nextNameTask }}
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div class="task-status">
+        <ion-list>
+          <ion-list-header color="tertiary">
+            <ion-label>Completado ({{ taskCounterCompleted }} de {{ taskCounter }})</ion-label>
+          </ion-list-header>
+
+          <ion-item *ngFor="let task of tasks">
+            <ion-icon
+              [name]="task.statusTask < taskCounterCompleted ? 'checkmark-circle-outline' : 'close-circle-outline'"
+              [color]="task.statusTask < taskCounterCompleted ? 'success' : 'danger'" slot="start">
+            </ion-icon>
+            <div class="status-container">
+              <span>{{ task.nameTask }}</span>
+              <ion-progress-bar value="1" [color]="task.statusTask < taskCounterCompleted ? 'success' : 'danger'">
+              </ion-progress-bar>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

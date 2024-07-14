@@ -54,6 +54,14 @@ export class ProspectosDetalleComponent implements OnInit {
     this.navCtrl.navigateForward(`/prospecto-seguimiento/${contact.id}`);
   }
 
+  formatPhoneNumber(phone: string): string {
+    const cleaned = phone.replace(/[^0-9]/g, '');
+    const areaCode = cleaned.slice(0,3);
+    const localNumber = cleaned.slice(3,6) + '-' + cleaned.slice(6,10);
+
+    return `(${areaCode}) ${localNumber}`;
+  }
+
 
 
 

@@ -1,15 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Dashboard</ion-title>
-  </ion-toolbar>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
 </ion-header>
 
 <ion-content>
-  <h1>Hola, Fulanito!</h1>
+  <ion-card color="tertiary">
+    <ion-card-header>
+      <ion-card-title>Hola, Mr Fulanito</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      14 de Junio de 2024
+    </ion-card-content>
+  </ion-card>
+
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let module of modules">
-        <ion-card (click)="navigateTo(module.path)">
+        <ion-card (click)="navigateTo(module.path)" [color]="module.color">
           <ion-card-content>
             <ion-icon [name]="module.icon" slot="start"></ion-icon>
             {{ module.text }}
