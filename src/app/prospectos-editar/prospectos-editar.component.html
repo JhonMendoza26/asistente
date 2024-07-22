@@ -10,7 +10,7 @@
 <ion-content color="light" class="ion-padding">
   <ion-list [inset]="true">
     <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+      <ion-label position="floating">Nombre completo</ion-label>
       <ion-input [(ngModel)]="contact.name"></ion-input>
     </ion-item>
     <ion-item>
@@ -27,6 +27,7 @@
     </ion-item>-->
   </ion-list>
   <div class="buttons">
-    <ion-button expand="block" (click)="saveContact()">{{ isNewContact ? 'Agregar' : 'Guardar' }}</ion-button>
+    <ion-button expand="block" (click)="presentAlert()">{{ isNewContact ? 'Agregar' : 'Guardar' }}</ion-button>
+    <!--<ion-button expand="block" (click)="saveContact()">{{ isNewContact ? 'Agregar' : 'Guardar' }}</ion-button>-->
   </div>
 </ion-content>

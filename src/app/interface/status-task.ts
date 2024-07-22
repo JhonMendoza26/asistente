@@ -1,10 +1,13 @@
 export interface StatusTask {
-  // Status actual
-  firstStatusTask: number;
-  firstNameTask: string;
-  firstValueBarTaks: string;
-  firstPercentageTask: string;
-  // Siguiente estatus
-  nextStatusTask: number;
-  nextNameTask: string;
+  //Estatus anterior
+  backStatusID: number;
+  backStatusName: string
+  //Estatus actual
+  currentStatusID: number;
+  currentStatusName: string;
+  currentValueBar: string;
+  currentStatusPercentage: number;
+  //Estatus siguiente
+  nextStatusID: number;
+  nextStatusName: string;
 }

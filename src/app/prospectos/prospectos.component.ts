@@ -43,7 +43,6 @@ export class ProspectosComponent implements OnInit {
   }
 
   onContactClick(contact: any) {
-    console.log("Prospecto: " + contact.name);
     this.navCtrl.navigateForward(`/prospecto-detalle/${contact.id}`);
   }
 

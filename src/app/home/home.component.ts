@@ -38,15 +38,15 @@ export class HomeComponent implements OnInit {
 
   generateTaskByDefault(): Task[] {
     return [
-      { nameTask: 'Primer paso', statusTask: 0, percentageTask: '0', valueTask: '0'},
-      { nameTask: 'Recorrido inicial', statusTask: 1, percentageTask: '15', valueTask: '0.15'},
-      { nameTask: 'Seguimiento', statusTask: 2, percentageTask: '30', valueTask: '0.3'},
-      { nameTask: 'Oferta', statusTask: 3, percentageTask: '45', valueTask: '0.45'},
-      { nameTask: 'Firma de contrato', statusTask: 4, percentageTask: '60', valueTask: '0.6'},
-      { nameTask: 'Anticipo', statusTask: 5, percentageTask: '75', valueTask: '0.75'},
-      { nameTask: 'Firma ante notario (Venta)', statusTask: 6, percentageTask: '90', valueTask: '0.9'},
-      { nameTask: 'Entrega de llaves (Renta)', statusTask: 7, percentageTask: '90', valueTask: '0.9'},
-      { nameTask: 'Finalizar seguimiento', statusTask: 8, percentageTask: '100', valueTask: '1'},
+      { nameTask: 'Primer paso', statusTask: 0, percentageTask: 0, valueTask: '0'},
+      { nameTask: 'Recorrido inicial', statusTask: 1, percentageTask: 15, valueTask: '0.15'},
+      { nameTask: 'Seguimiento', statusTask: 2, percentageTask: 30, valueTask: '0.3'},
+      { nameTask: 'Oferta', statusTask: 3, percentageTask: 45, valueTask: '0.45'},
+      { nameTask: 'Firma de contrato', statusTask: 4, percentageTask: 60, valueTask: '0.6'},
+      { nameTask: 'Anticipo', statusTask: 5, percentageTask: 75, valueTask: '0.75'},
+      { nameTask: 'Firma ante notario (Venta)', statusTask: 6, percentageTask: 90, valueTask: '0.9'},
+      { nameTask: 'Entrega de llaves (Renta)', statusTask: 7, percentageTask: 90, valueTask: '0.9'},
+      { nameTask: 'Finalizar seguimiento', statusTask: 8, percentageTask: 100, valueTask: '1'},
     ];
   }
 

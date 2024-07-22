@@ -1,6 +1,6 @@
 export interface Task {
   nameTask: string;
   statusTask: number;
-  percentageTask?: string;
-  valueTask?: string;
+  percentageTask: number;
+  valueTask: string;
 }

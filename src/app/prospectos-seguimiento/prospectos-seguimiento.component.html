@@ -18,13 +18,18 @@
       </ion-avatar>
     </div>
     <div class="status-section">
-      <p>{{ taskUser.firstNameTask }}</p>
-      <ion-progress-bar [value]="taskUser.firstValueBarTaks" color="success"></ion-progress-bar>
-      <p>{{ taskUser.firstPercentageTask }}%</p>
+      <p>{{ taskUser.currentStatusName }}</p>
+      <ion-progress-bar [value]="taskUser.currentValueBar" color="success"></ion-progress-bar>
+      <p>{{ taskUser.currentStatusPercentage }}%</p>
     </div>
-    <ion-button expand="full" (click)="handleButtonClick(taskUser.nextStatusTask)">
-      Avanzar a {{ taskUser.nextNameTask }}
+    <ion-button expand="block" (click)="handleNextStatusContact(contact.nextStatusTask)">
+      Avanzar a {{ taskUser.nextStatusName }}
       <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+    <ion-button expand="block" fill="outline" [disabled]="isBtnDisabledBack"
+      (click)="handleBackStatusContact(contact.backStatusTask)">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+      Regresar a {{ taskUser.backStatusName }}
     </ion-button>
   </ion-card-content>
 </ion-card>

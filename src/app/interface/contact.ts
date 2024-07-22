@@ -4,5 +4,8 @@ export interface Contact {
   photo: string;
   phone: string;
   email: string;
-  status?: number;
+
+  backStatusTask: number;
+  currentStatusTask: number;
+  nextStatusTask: number;
 }

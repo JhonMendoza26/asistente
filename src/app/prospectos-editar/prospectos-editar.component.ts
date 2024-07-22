@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Contact } from '@app/interface/contact';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-prospectos-editar',
@@ -10,11 +10,17 @@ import { NavController } from '@ionic/angular';
 })
 export class ProspectosEditarComponent implements OnInit {
 
-  contact: Contact = { id: '', name: '', photo: 'assets/img/user1.png', phone: '', email: '', status: 0 };
+  contact: Contact = {
+    id: '', name: '', photo: 'assets/img/user1.png', phone: '', email: '',
+    backStatusTask: -1, currentStatusTask: 0, nextStatusTask: 1
+  };
   isNewContact: boolean = false;
   @Output() contactSaved = new EventEmitter<void>();
 
-  constructor(private route: ActivatedRoute, private navCtrl: NavController) {}
+  constructor(
+    private route: ActivatedRoute, private navCtrl: NavController,
+    private alertController: AlertController
+  ) {}
 
   ngOnInit() {
     const contactId = this.route.snapshot.paramMap.get('id');
@@ -26,6 +32,10 @@ export class ProspectosEditarComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Metodo para guardar informacion del contacto
+   * @returns
+   */
   saveContact() {
     let contacts: Contact[] = JSON.parse(localStorage.getItem('contacts') || '[]');
     if (this.isNewContact) {
@@ -38,5 +48,30 @@ export class ProspectosEditarComponent implements OnInit {
     this.contactSaved.emit();
     this.navCtrl.navigateBack('/prospectos');
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: this.isNewContact ? '¿Estás seguro de crear el contacto?' : '¿Estás seguro de editar el contacto?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirmar Cancelar');
+          }
+        }, {
+          text: 'Guardar',
+          handler: () => {
+            this.saveContact();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
 
 }

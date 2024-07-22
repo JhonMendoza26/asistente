@@ -5,7 +5,7 @@ import { RouteReuseStrategy, RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule } from '@ngx-translate/core';
-import { IonicModule } from '@ionic/angular';
+import { AlertController, IonicModule } from '@ionic/angular';
 
 import { environment } from '@env/environment';
 import { RouteReusableStrategy, ApiPrefixInterceptor, ErrorHandlerInterceptor, SharedModule } from '@shared';
@@ -45,19 +45,20 @@ import { ProspectosSeguimientoModule } from './prospectos-seguimiento/prospectos
   declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent],
   providers: [
     {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ApiPrefixInterceptor,
-        multi: true
-      },
-      {
-        provide: HTTP_INTERCEPTORS,
-        useClass: ErrorHandlerInterceptor,
-        multi: true
-      },
-      {
-        provide: RouteReuseStrategy,
-        useClass: RouteReusableStrategy
-      },
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiPrefixInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorHandlerInterceptor,
+      multi: true
+    },
+    {
+      provide: RouteReuseStrategy,
+      useClass: RouteReusableStrategy
+    },
+    AlertController
   ],
   bootstrap: [AppComponent]
 })
