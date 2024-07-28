@@ -17,10 +17,10 @@
     <ion-list>
       <ion-item *ngFor="let contact of group.value" (click)="onContactClick(contact)">
         <ion-avatar slot="start">
-          <img src="{{ contact.photo }}">
+          <img src="{{ contact.foto }}">
         </ion-avatar>
         <ion-label>
-          <h2>{{ contact.name }}</h2>
+          <h2>{{ contact.nombre }}</h2>
         </ion-label>
       </ion-item>
     </ion-list>

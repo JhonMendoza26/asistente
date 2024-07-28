@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Contact } from '@app/interface/contact';
 import { NavController } from '@ionic/angular';
+import { Contacto } from '@app/interface/contacto';
 
 @Component({
   selector: 'app-prospectos',
@@ -9,23 +9,15 @@ import { NavController } from '@ionic/angular';
 })
 export class ProspectosComponent implements OnInit {
 
-  /*contacts = [
-    { id: 1, name: 'Juan Pérez Hernandez', photo: 'assets/img/user1.png' },
-    { id: 2, name: 'María García Garcia', photo: 'assets/img/user2.png' },
-    { id: 3, name: 'Maria Espinoza Mendez', photo: 'assets/img/user3.png' },
-    { id: 4, name: 'Noemi Gutierrez Escobar', photo: 'assets/img/user4.png' },
-  ];*/
-  contacts: Contact[] = [];
+  contacts: Contacto[] = [];
 
   groupedContacts: { [key: string]: any[] } = {};
 
   constructor(private navCtrl: NavController) {
-    console.log('Iniciando component Prospectos - constructor');
     this.groupContacts();
   }
 
   ngOnInit(): void {
-    console.log('Iniciando component Prospectos - ngOnInit');
   }
 
   @Output() contactClick = new EventEmitter<any>();
@@ -34,7 +26,7 @@ export class ProspectosComponent implements OnInit {
     this.groupedContacts = {};
     this.contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
     this.contacts.forEach(contact => {
-      const letter = contact.name.charAt(0).toUpperCase();
+      const letter = contact.nombre.charAt(0).toUpperCase();
       if (!this.groupedContacts[letter]) {
         this.groupedContacts[letter] = [];
       }
@@ -42,8 +34,8 @@ export class ProspectosComponent implements OnInit {
     });
   }
 
-  onContactClick(contact: any) {
-    this.navCtrl.navigateForward(`/prospecto-detalle/${contact.id}`);
+  onContactClick(contact: Contacto) {
+    this.navCtrl.navigateForward(`/prospecto-detalle/${contact.idContacto}`);
   }
 
   addContact() {

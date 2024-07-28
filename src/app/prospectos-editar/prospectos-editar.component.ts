@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Contact } from '@app/interface/contact';
 import { AlertController, NavController } from '@ionic/angular';
+import { Contacto } from '@app/interface/contacto';
 
 @Component({
   selector: 'app-prospectos-editar',
@@ -10,9 +11,17 @@ import { AlertController, NavController } from '@ionic/angular';
 })
 export class ProspectosEditarComponent implements OnInit {
 
-  contact: Contact = {
-    id: '', name: '', photo: 'assets/img/user1.png', phone: '', email: '',
-    backStatusTask: -1, currentStatusTask: 0, nextStatusTask: 1
+  contact: Contacto = {
+    apellidoMaterno: '',
+    apellidoPaterno: '',
+    correo: '',
+    etapaActual: 0,
+    etapaAnterior: -1,
+    etapaSiguiente: 1,
+    foto: 'assets/img/user1.png',
+    idContacto: 0,
+    nombre: '',
+    telefono: 0
   };
   isNewContact: boolean = false;
   @Output() contactSaved = new EventEmitter<void>();
@@ -23,12 +32,16 @@ export class ProspectosEditarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const contactId = this.route.snapshot.paramMap.get('id');
-    if (contactId === 'new') {
-      this.isNewContact = true;
-    } else if (contactId) {
-      const contacts: Contact[] = JSON.parse(localStorage.getItem('contacts') || '[]');
-      this.contact = contacts.find(contact => contact.id === contactId) || this.contact;
+    try{
+      const contactId = this.route.snapshot.paramMap.get('id');
+      if (contactId === 'new') {
+        this.isNewContact = true;
+      } else if (contactId) {
+        const contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
+        this.contact = contacts.find(contact => parseInt(contactId) === contact.idContacto) || this.contact;
+      }
+    }catch (error) {
+      console.error("Error al consultar datos de usuario: ",error);
     }
   }
 
@@ -37,12 +50,12 @@ export class ProspectosEditarComponent implements OnInit {
    * @returns
    */
   saveContact() {
-    let contacts: Contact[] = JSON.parse(localStorage.getItem('contacts') || '[]');
+    let contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
     if (this.isNewContact) {
-      this.contact.id = new Date().getTime().toString();
+      this.contact.idContacto = parseInt(new Date().getTime().toString());
       contacts.push(this.contact);
     } else {
-      contacts = contacts.map(contact => contact.id === this.contact.id ? this.contact : contact);
+      contacts = contacts.map(contact => contact.idContacto === this.contact.idContacto ? this.contact : contact);
     }
     localStorage.setItem('contacts', JSON.stringify(contacts));
     this.contactSaved.emit();
@@ -72,6 +85,5 @@ export class ProspectosEditarComponent implements OnInit {
 
     await alert.present();
   }
-
 
 }

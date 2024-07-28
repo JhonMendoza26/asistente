@@ -9,28 +9,40 @@
 
 <ion-card>
   <ion-card-header>
-    <ion-card-title class="card-title">{{ contact.name }}</ion-card-title>
+    <ion-card-title class="card-title">{{ infoContacto.contacto?.nombre || 'Nombre Contacto no disponible' }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
     <div class="profile-section">
       <ion-avatar>
-        <img [src]="contact.photo" alt="Profile Picture" />
+        <img [src]="infoContacto.contacto?.foto || 'assets/img/user1.png'" alt="Profile Picture" />
       </ion-avatar>
     </div>
-    <div class="status-section">
-      <p>{{ taskUser.currentStatusName }}</p>
-      <ion-progress-bar [value]="taskUser.currentValueBar" color="success"></ion-progress-bar>
-      <p>{{ taskUser.currentStatusPercentage }}%</p>
+    <div *ngIf="!isCompletedEtapa; else showSectionCompleted">
+      <div class="status-section">
+        <p>{{ descripcionEtapas?.descripcionEtapa?.nombreEtapaActual || 'Nombre Etapa no disponible' }}</p>
+        <ion-progress-bar [value]="descripcionEtapas?.descripcionEtapa?.valorBarEtapaActual || '0'" color="success"></ion-progress-bar>
+        <p>{{ descripcionEtapas?.descripcionEtapa?.porcentajeEtapaActual || '0' }}%</p>
+      </div>
+      <ion-button expand="block" [disabled]="isBtnDisabledNext" (click)="showAlertStatus(infoContacto.contacto?.etapaAnterior||0, infoContacto.contacto?.etapaActual||0, infoContacto.contacto?.etapaSiguiente||0, true)">
+        {{ descripcionEtapas?.descripcionEtapa?.nombreEtapaSiguiente || 'Etapa no disponible' }}
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+      <ion-button expand="block" fill="outline" [disabled]="isBtnDisabledBack"
+                  (click)="showAlertStatus(infoContacto.contacto?.etapaAnterior||0, infoContacto.contacto?.etapaActual||0, infoContacto.contacto?.etapaSiguiente||0, false)">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        {{ descripcionEtapas?.descripcionEtapa?.nombreEtapaAnterior || 'Etapa no disponible' }}
+      </ion-button>
     </div>
-    <ion-button expand="block" (click)="handleNextStatusContact(contact.nextStatusTask)">
-      Avanzar a {{ taskUser.nextStatusName }}
-      <ion-icon name="chevron-forward-outline"></ion-icon>
-    </ion-button>
-    <ion-button expand="block" fill="outline" [disabled]="isBtnDisabledBack"
-      (click)="handleBackStatusContact(contact.backStatusTask)">
-      <ion-icon name="chevron-back-outline"></ion-icon>
-      Regresar a {{ taskUser.backStatusName }}
-    </ion-button>
+    <ng-template #showSectionCompleted>
+      <ion-card color="light">
+        <ion-card-header>
+          <ion-card-title class="centered-title">Completado</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button expand="block" shape="round" (click)="desbloquearEtapas()">Desbloquear Etapas</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
   </ion-card-content>
 </ion-card>
 

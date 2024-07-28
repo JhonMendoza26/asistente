@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Contact } from '@app/interface/contact';
 import { AlertController, NavController } from '@ionic/angular';
+import { Contacto } from '@app/interface/contacto';
 
 @Component({
   selector: 'app-prospectos-detalle',
@@ -9,8 +9,17 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./prospectos-detalle.component.scss']
 })
 export class ProspectosDetalleComponent implements OnInit {
-  contact: Contact = {
-    id: '', name: '', photo: '', phone: '', email: '', backStatusTask: -1, currentStatusTask:0, nextStatusTask: 1
+  contact: Contacto = {
+    apellidoMaterno: '',
+    apellidoPaterno: '',
+    correo: '',
+    etapaActual: 0,
+    etapaAnterior: 0,
+    etapaSiguiente: 0,
+    foto: '',
+    idContacto: 0,
+    nombre: '',
+    telefono: 0
   };
   isNewContact: boolean = false;
 
@@ -24,21 +33,21 @@ export class ProspectosDetalleComponent implements OnInit {
     if (contactId === 'new') {
       this.isNewContact = true;
     } else if (contactId) {
-      const contacts: Contact[] = JSON.parse(localStorage.getItem('contacts') || '[]');
-      this.contact = contacts.find(contact => contact.id === contactId) || this.contact;
+      const contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
+      this.contact = contacts.find(contact => contact.idContacto === parseInt(contactId)) || this.contact;
     }
   }
 
-  editContact(contact: Contact) {
-    this.navCtrl.navigateForward(`/prospecto-editar/${contact.id}`);
+  editContact(contact: Contacto) {
+    this.navCtrl.navigateForward(`/prospecto-editar/${contact.idContacto}`);
   }
 
-  goToSeguimiento(contact: any) {
-    this.navCtrl.navigateForward(`/prospecto-seguimiento/${contact.id}`);
+  goToSeguimiento(idContact: number) {
+    this.navCtrl.navigateForward(`/prospecto-seguimiento/${idContact}`);
   }
 
-  formatPhoneNumber(phone: string): string {
-    const cleaned = phone.replace(/[^0-9]/g, '');
+  formatPhoneNumber(phone: number): string {
+    const cleaned = phone.toString().replace(/[^0-9]/g, '');
     const areaCode = cleaned.slice(0,3);
     const localNumber = cleaned.slice(3,6) + '-' + cleaned.slice(6,10);
 
@@ -50,17 +59,18 @@ export class ProspectosDetalleComponent implements OnInit {
     @param contact - Objeto que contiene la informacion del contacto
     @return Contacto eliminado
   */
-    deleteContact(contact: Contact) {
-      let contacts: Contact[] = JSON.parse(localStorage.getItem('contacts') || '[]');
-      contacts = contacts.filter(item => item.id !== contact.id);
+    deleteContact(contact: Contacto) {
+      let contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
+      contacts = contacts.filter(item => item.idContacto !== contact.idContacto);
       localStorage.setItem('contacts', JSON.stringify(contacts));
       this.navCtrl.navigateBack('/prospectos');
     }
 
   /*
-    Alerta para confirmar la eliminación del contacto
+    TODO: Alerta para confirmar la eliminación del contacto
+    @param contact Objeto que contiene la informacion del contacto
   */
-    async deleteContactAlert(contact: Contact) {
+    async deleteContactAlert(contact: Contacto) {
       const alert = await this.alertController.create({
         header: 'Confirmar',
         message: '¿Estás seguro de eliminar el contacto?',
@@ -80,7 +90,6 @@ export class ProspectosDetalleComponent implements OnInit {
           }
         ]
       });
-
       await alert.present();
     }
 
