@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>Atras</ion-back-button>
+    </ion-buttons>
+    <ion-title>Contactar Prospecto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <ion-list [inset]="true">
+    <ion-item [button]="true" (click)="selectMessage('Hola! Tendras un tiempo para darle seguimiento a tu compra')">
+      <ion-label>Hola! Tendras un tiempo para darle seguimiento a tu compra</ion-label>
+    </ion-item>
+    <ion-item [button]="true" (click)="selectMessage('Buenas Fulanito, solo para darle seguimiento a tu compra')">
+      <ion-label>Buenas Fulanito, solo para darle seguimiento a tu compra</ion-label>
+    </ion-item>
+    <ion-item [button]="true" (click)="selectMessage('Hola! Quisiera saber si aun sigues interesado en la compra')">
+      <ion-label>Hola! Quisiera saber si aun sigues interesado en la compra</ion-label>
+    </ion-item>
+    <ion-item [button]="true" (click)="selectMessage('Mensaje 4')">
+      <ion-label>Mensaje 4</ion-label>
+    </ion-item>
+    <ion-item [button]="true" (click)="selectMessage('Mensaje 5')">
+      <ion-label>Mensaje 5</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-label position="floating">Mensaje</ion-label>
+      <ion-textarea rows="5" [(ngModel)]="selectedMessage"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-note-responsive">
+    <ion-note color="medium" class="ion-margin-horizontal">
+      Puedes seleccionar un mensaje o escribir uno personalizado
+    </ion-note>
+  </div>
+
+  <ion-button  id="open-toast" expand="block" (click)="goToSendMessage()">Enviar mensaje</ion-button>
+
+</ion-content>

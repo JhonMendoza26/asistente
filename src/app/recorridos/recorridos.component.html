@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button>Atras</ion-back-button>
+    </ion-buttons>
+    <ion-title>Recorridos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-card class="responsive-card">
+    <ion-card-header>
+      <ion-card-title>{{ totalUsers }}</ion-card-title>
+      <ion-card-subtitle>{{ totalUsers > 1 || totalUsers === 0 ? 'Prospectos' : 'Prospecto' }} en Recorridos</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="downloadReport()">
+        <ion-icon name="cloud-download-outline"></ion-icon>
+        Descargar Reporte
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list [inset]="true" *ngIf="contacts.length > 0; else noData">
+    <ion-list-header color="tertiary">
+      <ion-label>Contactar Prospecto</ion-label>
+    </ion-list-header>
+    <ion-item [button]="true" *ngFor="let contact of contacts" (click)="contactarProspecto(contact.idContacto)">
+      <ion-avatar aria-hidden="true" slot="start">
+        <img alt="" [src]="contact.foto ? contact.foto : 'https://ionicframework.com/docs/img/demos/avatar.svg'" />
+      </ion-avatar>
+      <ion-label>{{ contact.nombre + " " + contact.apellidoPaterno + " " + contact.apellidoMaterno }}</ion-label>
+      <ion-note slot="end">
+        <ion-icon name="mail-outline"></ion-icon>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  <ng-template #noData>
+    <ion-list lines="none">
+      <ion-item style="text-align: center">
+        <ion-label><ion-icon name="alert-circle-outline"></ion-icon> Sin prospectos para Recorridos</ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-content>

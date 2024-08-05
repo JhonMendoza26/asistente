@@ -22,6 +22,10 @@ import { ProspectosEditarComponent } from './prospectos-editar/prospectos-editar
 import { ProspectosEditarModule } from './prospectos-editar/prospectos-editar.module';
 import { ProspectosSeguimientoComponent } from './prospectos-seguimiento/prospectos-seguimiento.component';
 import { ProspectosSeguimientoModule } from './prospectos-seguimiento/prospectos-seguimiento.module';
+import { RecorridosComponent } from './recorridos/recorridos.component';
+import { RecorridosModule } from '@app/recorridos/recorridos.module';
+import { ContactarProspectoComponent } from './contactar-prospecto/contactar-prospecto.component';
+import { ContactarProspectoRoutingModule } from '@app/contactar-prospecto/contactar-prospecto-routing.module';
 
 @NgModule({
   imports: [
@@ -40,9 +44,11 @@ import { ProspectosSeguimientoModule } from './prospectos-seguimiento/prospectos
     ProspectosDetalleModule,
     ProspectosEditarModule,
     ProspectosSeguimientoModule,
+    RecorridosModule,
+    ContactarProspectoRoutingModule,
     AppRoutingModule
   ],
-  declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent],
+  declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent, RecorridosComponent, ContactarProspectoComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

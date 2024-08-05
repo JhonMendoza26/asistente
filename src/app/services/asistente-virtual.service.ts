@@ -240,4 +240,18 @@ export class AsistenteVirtualService {
     }
   }
 
+  public getProspectosByEtapa(etapaID: number): Contacto[] {
+    let contactsResponse: Contacto[] = [];
+    let contacts: Contacto[] = [];
+    try {
+      contactsResponse = JSON.parse(localStorage.getItem('contacts') || '[]');
+      if ( contactsResponse.length > 0 ) {
+        contacts = contactsResponse.filter(contact => contact.etapaActual === etapaID);
+      }
+    }catch (error) {
+      console.log(error);
+    }
+    return contacts;
+  }
+
 }

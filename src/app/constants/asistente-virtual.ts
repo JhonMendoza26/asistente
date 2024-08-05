@@ -13,6 +13,17 @@ export class AsistenteVirtualConstants {
   static readonly CODE_ETAPA_ANTERIOR: number = -1;
   static readonly CODE_ETAPA_ACTUAL: number = 0;
   static readonly CODE_ETAPA_SIGUIENTE: number = 1;
+  static readonly ETAPA_NO_DISPONIBLE: number = -1;
+  static readonly ETAPA_NO_INICIADOR: number = 0;
+  static readonly ETAPA_RECORRIDO_INICIAL: number = 1;
+  static readonly ETAPA_SEGUIMIENTO: number = 2;
+  static readonly ETAPA_OFERTA: number = 3;
+  static readonly ETAPA_FIRMA_CONTRATOR: number = 4;
+  static readonly ETAPA_ANTICIPO: number = 5;
+  static readonly ETAPA_FIRMA_NOTARIO: number = 6;
+  static readonly ETAPA_ENTREGA_LLAVES: number = 7;
+  static readonly ETAPA_FINALIZAR_SEGUIMIENTO: number = 8;
+  static readonly ETAPA_COMPLETADOR: number = 9;
 
   // TODO Acciones
   static readonly MSJ_ERROR: string = "Error al ejecutar proceso: ";
