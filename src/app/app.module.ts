@@ -25,7 +25,15 @@ import { ProspectosSeguimientoModule } from './prospectos-seguimiento/prospectos
 import { RecorridosComponent } from './recorridos/recorridos.component';
 import { RecorridosModule } from '@app/recorridos/recorridos.module';
 import { ContactarProspectoComponent } from './contactar-prospecto/contactar-prospecto.component';
-import { ContactarProspectoRoutingModule } from '@app/contactar-prospecto/contactar-prospecto-routing.module';
+import { SeguimientoComponent } from './seguimiento/seguimiento.component';
+import { OfertaComponent } from './oferta/oferta.component';
+import { ContratosComponent } from './contratos/contratos.component';
+import { AnticiposComponent } from './anticipos/anticipos.component';
+import { NotarioComponent } from './notario/notario.component';
+import { LlavesComponent } from './llaves/llaves.component';
+import { SeguimientoModule } from '@app/seguimiento/seguimiento.module';
+import { ContactarProspectoModule } from '@app/contactar-prospecto/contactar-prospecto.module';
+import { OfertaModule } from '@app/oferta/oferta.module';
 
 @NgModule({
   imports: [
@@ -45,10 +53,12 @@ import { ContactarProspectoRoutingModule } from '@app/contactar-prospecto/contac
     ProspectosEditarModule,
     ProspectosSeguimientoModule,
     RecorridosModule,
-    ContactarProspectoRoutingModule,
+    ContactarProspectoModule,
+    SeguimientoModule,
+    OfertaModule,
     AppRoutingModule
   ],
-  declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent, RecorridosComponent, ContactarProspectoComponent],
+  declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent, RecorridosComponent, ContactarProspectoComponent, SeguimientoComponent, OfertaComponent, ContratosComponent, AnticiposComponent, NotarioComponent, LlavesComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
