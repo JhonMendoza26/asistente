@@ -11,20 +11,21 @@
   <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-searchbar placeholder="Buscar"></ion-searchbar>
-  <div *ngFor="let group of groupedContacts | keyvalue">
-    <h2 class="contact-letter">{{ group.key }}</h2>
-    <ion-list>
-      <ion-item *ngFor="let contact of group.value" (click)="onContactClick(contact)">
-        <ion-avatar slot="start">
-          <img src="{{ contact.foto }}">
-        </ion-avatar>
-        <ion-label>
-          <h2>{{ contact.nombre }}</h2>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
+
+  <ion-searchbar (ionInput)="filtrarContactos($event)" placeholder="Buscar contacto"></ion-searchbar>
+
+  <ion-list *ngFor="let grupo of filtroContactos">
+    <ion-item-divider color="light">{{ grupo.letraInicial }}</ion-item-divider>
+    <ion-item *ngFor="let contacto of grupo.contactos" (click)="onContactClick(contacto.idContacto)">
+      <ion-avatar slot="start">
+        <img src="{{ contacto.foto }}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ contacto.nombre }}</h2>
+        <p>{{ contacto.telefono }} | {{ contacto.correo }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">

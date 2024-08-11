@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Contact } from '@app/interface/contact';
 import { AlertController, NavController } from '@ionic/angular';
 import { Contacto } from '@app/interface/contacto';
 

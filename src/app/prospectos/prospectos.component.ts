@@ -10,11 +10,12 @@ import { Contacto } from '@app/interface/contacto';
 export class ProspectosComponent implements OnInit {
 
   contacts: Contacto[] = [];
-
-  groupedContacts: { [key: string]: any[] } = {};
+  agendaContactos: { letraInicial: string, contactos: Contacto[] }[] = [];
+  filtroContactos: { letraInicial: string, contactos: Contacto[] }[] = [];
 
   constructor(private navCtrl: NavController) {
-    this.groupContacts();
+    this.agruparContactos();
+    this.filtroContactos = this.agendaContactos;
   }
 
   ngOnInit(): void {
@@ -22,32 +23,58 @@ export class ProspectosComponent implements OnInit {
 
   @Output() contactClick = new EventEmitter<any>();
 
-  groupContacts() {
-    this.groupedContacts = {};
+  agruparContactos() {
+    const grupos: { [key: string]: Contacto[] } = {};
     this.contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
-    this.contacts.forEach(contact => {
-      const letter = contact.nombre.charAt(0).toUpperCase();
-      if (!this.groupedContacts[letter]) {
-        this.groupedContacts[letter] = [];
+    this.contacts.forEach(contacto => {
+      const letraInicial:string = contacto.nombre.charAt(0).toUpperCase();
+      if (!grupos[letraInicial]) {
+        grupos[letraInicial] = [];
       }
-      this.groupedContacts[letter].push(contact);
+      grupos[letraInicial].push(contacto);
     });
+
+    this.agendaContactos = Object.keys(grupos)
+      .sort()
+      .map(letraInicial => {
+        return {
+          letraInicial,
+          contactos: grupos[letraInicial].sort((a, b) => a.nombre.localeCompare(b.nombre))
+        };
+      });
   }
 
-  onContactClick(contact: Contacto) {
-    this.navCtrl.navigateForward(`/prospecto-detalle/${contact.idContacto}`);
+  onContactClick(idContacto: number): void {
+    this.navCtrl.navigateForward(`/prospecto-detalle/${idContacto}`);
   }
 
   addContact() {
     this.navCtrl.navigateForward('/prospecto-editar/new');
   }
 
-  handleRefresh(event:any) {
+  handleRefresh(event:any): void {
     setTimeout(() => {
       event.target.complete();
-      this.groupContacts();
+      this.agruparContactos();
       console.log("Refresh page");
     }, 2000);
+  }
+
+  /*filtrateProspect(event:any): void {
+    const query = event.target.value.toLowerCase();
+    this.resultContacts = this.contacts.filter((contact: Contacto) => {
+      return contact.nombre.toLowerCase().indexOf(query) > -1;
+    });
+  }*/
+
+  filtrarContactos(event: any) {
+    const query = event.target.value.toLowerCase();
+    this.filtroContactos = this.agendaContactos.map(grupo => {
+      const contactosFiltrados: Contacto[] = grupo.contactos.filter(contacto =>
+        contacto.nombre.toLowerCase().includes(query)
+      );
+      return { letraInicial: grupo.letraInicial, contactos: contactosFiltrados };
+    }).filter(grupo => grupo.contactos.length > 0);
   }
 
 }

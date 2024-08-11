@@ -17,6 +17,8 @@ export class SeguimientoComponent implements OnInit {
 
   contacts: Contacto[] = [];
 
+  public resultContacts: Contacto[] = [...this.contacts];
+
   constructor(private route: ActivatedRoute, private asistenteVirtualService: AsistenteVirtualService,
               private navCtrl: NavController) {
   }
@@ -34,11 +36,19 @@ export class SeguimientoComponent implements OnInit {
 
   obtenerProspectoByEtapa(): void {
     this.contacts = this.asistenteVirtualService.getProspectosByEtapa(AsistenteVirtualConstants.ETAPA_SEGUIMIENTO);
+    this.resultContacts = [...this.contacts];
     this.totalUsers = this.contacts.length;
   }
 
   contactarProspecto(idContacto: number): void {
     this.navCtrl.navigateForward(`/contactar-prospecto/${idContacto}`);
+  }
+
+  filtrarProspecto(event:any): void {
+    const query = event.target.value.toLowerCase();
+    this.resultContacts = this.contacts.filter((contact: Contacto) => {
+      return contact.nombre.toLowerCase().indexOf(query) > -1;
+    });
   }
 
 }

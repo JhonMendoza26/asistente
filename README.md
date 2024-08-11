@@ -134,3 +134,16 @@ Development, build and quality processes are based on [angular-cli](https://gith
 - [Updating dependencies and tools](docs/updating.md)
 - [Using a backend proxy for development](docs/backend-proxy.md)
 - [Browser routing](docs/routing.md)
+
+# Deploy
+- Subir cambios al repositorio
+- Construir proyecto para desplegarlo
+ ```cmd
+ ng build --base-href "https://USERNAME.hithub.io/REPOSITORY_NAME/"
+ ```
+Desplegar proyecto en GitHub
+ ```sh
+ npx ngh --dir=dist
+ ```
+- Revisar cambios en GitHub page
+

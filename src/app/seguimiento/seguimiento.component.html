@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button>Atras</ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Seguimientos</ion-title>
   </ion-toolbar>
@@ -25,7 +25,8 @@
     <ion-list-header color="tertiary">
       <ion-label>Contactar Prospecto</ion-label>
     </ion-list-header>
-    <ion-item [button]="true" *ngFor="let contact of contacts" (click)="contactarProspecto(contact.idContacto)">
+    <ion-searchbar [debounce]="1000" (ionInput)="filtrarProspecto($event)" placeholder="Buscar contacto"></ion-searchbar>
+    <ion-item [button]="true" *ngFor="let contact of resultContacts" (click)="contactarProspecto(contact.idContacto)">
       <ion-avatar aria-hidden="true" slot="start">
         <img alt="" [src]="contact.foto ? contact.foto : 'https://ionicframework.com/docs/img/demos/avatar.svg'" />
       </ion-avatar>

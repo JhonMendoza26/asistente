@@ -10,12 +10,16 @@
 <ion-content color="light" class="ion-padding">
   <ion-list [inset]="true">
     <ion-item>
-      <ion-label position="floating">Nombre completo</ion-label>
+      <ion-label position="floating">Nombre</ion-label>
       <ion-input [(ngModel)]="contact.nombre"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="contact.apellidoPaterno"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label position="floating">Teléfono</ion-label>
-      <ion-input [(ngModel)]="contact.telefono"></ion-input>
+      <ion-input placeholder = "XXX-XXX-XXXX" [(ngModel)]="contact.telefono"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Email</ion-label>
