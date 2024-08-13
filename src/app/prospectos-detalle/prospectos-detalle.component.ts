@@ -19,7 +19,8 @@ export class ProspectosDetalleComponent implements OnInit {
     foto: '',
     idContacto: 0,
     nombre: '',
-    telefono: 0
+    telefono: 0,
+    fecha: new Date()
   };
   isNewContact: boolean = false;
 

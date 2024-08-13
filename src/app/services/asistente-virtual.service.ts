@@ -6,7 +6,6 @@ import { EtapasResponse } from '@app/interface/etapas-response';
 import { ContactoResponse } from '@app/interface/contacto-response';
 import { EtapaContacto } from '@app/interface/etapa-contacto';
 import { EtapasDescripcionResponse } from '@app/interface/etapas-descripcion-response';
-import { Contact } from '@app/interface/contact';
 
 @Injectable({
   providedIn: 'root'

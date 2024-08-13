@@ -8,6 +8,21 @@
 </ion-header>
 
 <ion-content color="light">
+
+  <!--<ion-list>
+    <ion-item *ngFor="let suggestion of alertSuggestions">
+      <ion-label>
+        <h2>Sugerencia para usuario</h2>
+        <p>{{ suggestion.suggestion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>-->
+
+  <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
   <ion-card class="responsive-card">
     <ion-card-header>
       <ion-card-title>{{ totalUsers }}</ion-card-title>
@@ -44,3 +59,5 @@
     </ion-list>
   </ng-template>
 </ion-content>
+
+

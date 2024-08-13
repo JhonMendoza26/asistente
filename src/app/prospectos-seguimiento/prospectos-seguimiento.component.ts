@@ -47,7 +47,8 @@ export class ProspectosSeguimientoComponent implements OnInit {
     foto: '',
     idContacto: 0,
     nombre: '',
-    telefono: 0
+    telefono: 0,
+    fecha: new Date()
   };
 
   taskUser: EtapaContacto = {

@@ -20,7 +20,8 @@ export class ProspectosEditarComponent implements OnInit {
     foto: 'assets/img/user1.png',
     idContacto: 0,
     nombre: '',
-    telefono: 0
+    telefono: 0,
+    fecha: new Date()
   };
   isNewContact: boolean = false;
   @Output() contactSaved = new EventEmitter<void>();

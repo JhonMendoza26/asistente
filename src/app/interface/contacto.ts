@@ -9,4 +9,5 @@ export interface Contacto {
   etapaAnterior: number;
   etapaActual: number;
   etapaSiguiente: number;
+  fecha: Date;
 }
