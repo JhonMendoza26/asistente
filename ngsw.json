@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1723522635802,
+  "timestamp": 1724036154025,
   "index": "https://JhonMendoza26.github.io/asistente/index.html",
   "assetGroups": [
     {
@@ -70,7 +70,7 @@
         "https://JhonMendoza26.github.io/asistente/common.8179ed24edf04195.js",
         "https://JhonMendoza26.github.io/asistente/favicon.ico",
         "https://JhonMendoza26.github.io/asistente/index.html",
-        "https://JhonMendoza26.github.io/asistente/main.25929da352d6789b.js",
+        "https://JhonMendoza26.github.io/asistente/main.5f2258b37aaca876.js",
         "https://JhonMendoza26.github.io/asistente/manifest.webmanifest",
         "https://JhonMendoza26.github.io/asistente/polyfills-core-js.d5a9bf31ecc9c1b3.js",
         "https://JhonMendoza26.github.io/asistente/polyfills-dom.3f9d11e4723a6cf6.js",
@@ -166,8 +166,8 @@
     "https://JhonMendoza26.github.io/asistente/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
     "https://JhonMendoza26.github.io/asistente/common.8179ed24edf04195.js": "1eec3799cfaa909a266460807d94396d8b74122d",
     "https://JhonMendoza26.github.io/asistente/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
-    "https://JhonMendoza26.github.io/asistente/index.html": "dd27f167346a6c65db133d2d485352d365677707",
-    "https://JhonMendoza26.github.io/asistente/main.25929da352d6789b.js": "a8a2b4675756a7bdbab1d46ea3a304d2c55b73f5",
+    "https://JhonMendoza26.github.io/asistente/index.html": "55db167fd1f47b1b09735049d442edc08b7d471c",
+    "https://JhonMendoza26.github.io/asistente/main.5f2258b37aaca876.js": "e9cc03e6644f7928b032f046b7fc15e32b44201f",
     "https://JhonMendoza26.github.io/asistente/manifest.webmanifest": "73d6631db76ce0cf8dcd809df09e9a1f5c20fb68",
     "https://JhonMendoza26.github.io/asistente/polyfills-core-js.d5a9bf31ecc9c1b3.js": "63d6b58caf4a1c2f999340d4edb0e667af3bf3d2",
     "https://JhonMendoza26.github.io/asistente/polyfills-dom.3f9d11e4723a6cf6.js": "2b8ed8c5fac2498661fc3983a650349d6148ff6f",
