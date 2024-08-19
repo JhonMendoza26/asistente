@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import jsPDF from 'jspdf';
 import { AsistenteVirtualService } from '@app/services/asistente-virtual.service';
-import { ActivatedRoute } from '@angular/router';
 import { Contacto } from '@app/interface/contacto';
 import { AsistenteVirtualConstants } from '@app/constants/asistente-virtual';
-import { NavController, ToastController } from '@ionic/angular';
+import { ModalController, NavController, ToastController } from '@ionic/angular';
 import { Alertas } from '@app/interface/alertas';
+import { RecordatorioComponent } from '@app/recordatorio/recordatorio.component';
 
 @Component({
   selector: 'app-recorridos',
@@ -15,14 +15,16 @@ import { Alertas } from '@app/interface/alertas';
 export class RecorridosComponent implements OnInit {
 
   totalUsers: number = 0;
+  totalUsersInactivos: number = 0;
 
   contacts: Contacto[] = [];
   alertSuggestions: Alertas[] = [];
 
   public resultContacts: Contacto[] = [...this.contacts];
 
-  constructor(private route: ActivatedRoute, private asistenteVirtualService: AsistenteVirtualService,
-              private navCtrl: NavController, private toastController: ToastController) {
+  constructor(private asistenteVirtualService: AsistenteVirtualService,
+              private navCtrl: NavController, private toastController: ToastController,
+              private modalController: ModalController) {
   }
 
   ngOnInit() {
@@ -38,10 +40,11 @@ export class RecorridosComponent implements OnInit {
 
   obtenerProspectoByEtapa(): void {
     this.contacts = this.asistenteVirtualService.getProspectosByEtapa(AsistenteVirtualConstants.ETAPA_RECORRIDO_INICIAL);
-    this.alertSuggestions = this.getSuggestions(this.contacts);
     this.resultContacts = [...this.contacts];
+    this.alertSuggestions = this.getSuggestions(this.contacts);
     this.totalUsers = this.contacts.length;
     this.showSuggestionsAsToasts();
+    this.totalUsersInactivos = this.alertSuggestions.length;
   }
 
   contactarProspecto(idContacto: number): void {
@@ -71,6 +74,13 @@ export class RecorridosComponent implements OnInit {
     users.forEach(user => {
       // Ejemplo: Detectar usuarios inactivos por más de 30 días
       if (this.isUserInactive(user)) {
+        this.resultContacts = this.resultContacts.map(contact => {
+          if (contact.idContacto === user.idContacto) {
+            return { ...contact, isInactivo: true };
+          }
+          return contact;
+        });
+        console.log("Uusarios inactivos: " + JSON.stringify(this.resultContacts));
         suggestions.push({
           userId: user.idContacto,
           suggestion: `El usuario ${user.nombre} ha estado inactivo por más de 30 días. Considera contactarlo.`
@@ -90,10 +100,12 @@ export class RecorridosComponent implements OnInit {
   }
 
   private isUserInactive(user: Contacto): boolean {
+    console.log("User ID: " + user.idContacto);
     const now: Date = new Date();
     const lastInteraction: Date = new Date(user.fecha);
     const diffInDays: number = (now.getTime() - lastInteraction.getTime()) / (1000 * 3600 * 24);
-    return diffInDays > 0.01;
+    console.log("DiffInDays: " + diffInDays);
+    return diffInDays > 0.005;
   }
 
   private isUserStuckInStage(user: Contacto): boolean {
@@ -106,15 +118,20 @@ export class RecorridosComponent implements OnInit {
   async showSuggestionsAsToasts() {
     for (let suggestion of this.alertSuggestions) {
       const toast = await this.toastController.create({
-        message: `${suggestion.suggestion}`,
-        duration: 10000,  // Duración en milisegundos
+        header: 'Prospectos inactivos',
+        message: `<p>${suggestion.suggestion}</p>`,
+        cssClass: 'custom-toast-header',
+        duration: 100000,  // Duración en milisegundos
         position: 'top',
+        //icon: 'alert-circle-outline',
+        color: 'dark',
+        layout: 'stacked',
         buttons: [
           {
             text: 'Contactar',
+            role: 'info',
+            cssClass: 'colorbtn',
             handler: () => {
-              //this.contactUser(suggestion.userId);
-              console.log("Contacto usuario por alerta");
               this.contactarProspecto(suggestion.userId);
             }
           },
@@ -126,6 +143,27 @@ export class RecorridosComponent implements OnInit {
       });
       await toast.present();
     }
+  }
+
+  crearRecordatorio(){
+    console.log("Creando recordatorio");
+    this.navCtrl.navigateForward(`/recordatorio`);
+  }
+
+  async openReminderModal() {
+    const modal = await this.modalController.create({
+      component: RecordatorioComponent,
+      //componentProps: { user }
+    });
+
+    modal.onDidDismiss().then((result) => {
+      if (result.data && result.data.selectedDate) {
+        //this.createReminder(user, result.data.selectedDate);
+        console.log("Algo debe hacer aqui");
+      }
+    });
+
+    return await modal.present();
   }
 
 

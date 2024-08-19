@@ -21,6 +21,7 @@ export class ProspectosEditarComponent implements OnInit {
     idContacto: 0,
     nombre: '',
     telefono: 0,
+    isInactivo: false,
     fecha: new Date()
   };
   isNewContact: boolean = false;

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Crear recordatorio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Crear</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-label position="floating">Recordatorio</ion-label>
+      <ion-textarea rows="5"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-datetime locale="es-ES" id="datetime" style="margin-top: 1rem; margin-bottom: 1rem;">
+        <span slot="time-label">Hora</span>
+      </ion-datetime>
+    </ion-item>
+  </ion-list>
+</ion-content>

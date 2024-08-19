@@ -34,6 +34,8 @@ import { LlavesComponent } from './llaves/llaves.component';
 import { SeguimientoModule } from '@app/seguimiento/seguimiento.module';
 import { ContactarProspectoModule } from '@app/contactar-prospecto/contactar-prospecto.module';
 import { OfertaModule } from '@app/oferta/oferta.module';
+import { RecordatorioComponent } from './recordatorio/recordatorio.component';
+import { RecordatorioModule } from '@app/recordatorio/recordatorio.module';
 
 @NgModule({
   imports: [
@@ -56,9 +58,10 @@ import { OfertaModule } from '@app/oferta/oferta.module';
     ContactarProspectoModule,
     SeguimientoModule,
     OfertaModule,
+    RecordatorioModule,
     AppRoutingModule
   ],
-  declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent, RecorridosComponent, ContactarProspectoComponent, SeguimientoComponent, OfertaComponent, ContratosComponent, AnticiposComponent, NotarioComponent, LlavesComponent],
+  declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent, RecorridosComponent, ContactarProspectoComponent, SeguimientoComponent, OfertaComponent, ContratosComponent, AnticiposComponent, NotarioComponent, LlavesComponent, RecordatorioComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

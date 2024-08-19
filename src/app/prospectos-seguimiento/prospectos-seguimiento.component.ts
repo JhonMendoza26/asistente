@@ -48,6 +48,7 @@ export class ProspectosSeguimientoComponent implements OnInit {
     idContacto: 0,
     nombre: '',
     telefono: 0,
+    isInactivo: false,
     fecha: new Date()
   };
 
