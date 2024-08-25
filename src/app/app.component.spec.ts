@@ -7,18 +7,12 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-
-
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      imports: [
-        IonicModule.forRoot(),
-        RouterTestingModule,
-        TranslateModule.forRoot()
-      ],
+      imports: [IonicModule.forRoot(), RouterTestingModule, TranslateModule.forRoot()],
       declarations: [AppComponent],
-      providers: []
+      providers: [],
     }).compileComponents();
   }));
 

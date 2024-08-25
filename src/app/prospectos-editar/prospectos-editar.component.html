@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ isNewContact ? 'Agregar Prospecto' : 'Editar Prospecto' }}</ion-title>
+    <ion-title>{{ isNewContact ? 'Agregar Cliente' : 'Editar Cliente' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +19,7 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Teléfono</ion-label>
-      <ion-input placeholder = "XXX-XXX-XXXX" [(ngModel)]="contact.telefono"></ion-input>
+      <ion-input placeholder="XXX-XXX-XXXX" [(ngModel)]="contact.telefono"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Email</ion-label>

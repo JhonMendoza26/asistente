@@ -4,9 +4,6 @@ import { ProspectosEditarRoutingModule } from './prospectos-editar-routing.modul
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    ProspectosEditarRoutingModule
-  ]
+  imports: [CommonModule, ProspectosEditarRoutingModule],
 })
-export class ProspectosEditarModule { }
+export class ProspectosEditarModule {}

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button>Atras</ion-back-button>
     </ion-buttons>
-    <ion-title>Prospectos</ion-title>
+    <ion-title>Clientes</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +18,7 @@
     <ion-item-divider color="light">{{ grupo.letraInicial }}</ion-item-divider>
     <ion-item *ngFor="let contacto of grupo.contactos" (click)="onContactClick(contacto.idContacto)">
       <ion-avatar slot="start">
-        <img src="{{ contacto.foto }}">
+        <img src="{{ contacto.foto }}" />
       </ion-avatar>
       <ion-label>
         <h2>{{ contacto.nombre }}</h2>

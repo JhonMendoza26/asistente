@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button>Atras</ion-back-button>
+      <ion-back-button>Back</ion-back-button>
     </ion-buttons>
-    <ion-title>Detalle del Prospecto</ion-title>
+    <ion-title>Detalle del Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,17 +11,19 @@
   <div class="contact-detail">
     <div class="contact-avatar">
       <ion-avatar>
-        <img src="{{ contact.foto }}">
+        <img src="{{ contact.foto }}" />
       </ion-avatar>
     </div>
     <h2>{{ contact.nombre }}</h2>
     <div class="actions">
-      <ion-button color="success" (click)="openWhatsApp(contact)"><ion-icon
-          name="logo-whatsapp"></ion-icon></ion-button>
+      <ion-button color="success" (click)="openWhatsApp(contact)"
+        ><ion-icon name="logo-whatsapp"></ion-icon
+      ></ion-button>
       <ion-button color="primary" (click)="sendEmail(contact)"><ion-icon name="mail"></ion-icon></ion-button>
       <ion-button color="tertiary" (click)="editContact(contact)"><ion-icon name="create"></ion-icon></ion-button>
-      <ion-button color="danger" (click)="deleteContactAlert(contact)"><ion-icon
-          name="trash-outline"></ion-icon></ion-button>
+      <ion-button color="danger" (click)="deleteContactAlert(contact)"
+        ><ion-icon name="trash-outline"></ion-icon
+      ></ion-button>
     </div>
     <ion-card>
       <ion-card-content>
@@ -39,7 +41,7 @@
         <ion-item lines="none">
           <ion-label>
             <p>Correo</p>
-            <h2>{{ contact.correo}}</h2>
+            <h2>{{ contact.correo }}</h2>
           </ion-label>
           <ion-buttons slot="end">
             <ion-button>
@@ -50,7 +52,8 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-button color="tertiary" (click)="goToSeguimiento(contact.idContacto)">Dar
-      seguimiento <ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+    <ion-button color="tertiary" (click)="goToSeguimiento(contact.idContacto)"
+      >Hacer seguimiento <ion-icon name="chevron-forward-outline"></ion-icon
+    ></ion-button>
   </div>
 </ion-content>

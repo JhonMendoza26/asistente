@@ -6,10 +6,9 @@ import { EtapasSeguimiento } from '@app/interface/etapas-seguimiento';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   constructor(private navCtrl: NavController) {
     const storedTasks = localStorage.getItem('tasks');
     this.task = storedTasks ? JSON.parse(storedTasks) : this.generateTaskByDefault();
@@ -21,19 +20,19 @@ export class HomeComponent implements OnInit {
 
   modules = [
     { text: 'Publicaciones', icon: 'newspaper', path: '/publicaciones', color: 'dark' },
-    { text: 'Prospectos', icon: 'people', path: '/prospectos', color: 'medium' },
+    { text: 'Clientes', icon: 'people', path: '/prospectos', color: 'medium' },
     { text: 'Recorridos', icon: 'walk', path: '/recorridos', color: 'tertiary' },
     { text: 'Seguimiento', icon: 'clipboard', path: '/seguimiento', color: 'danger' },
     { text: 'Oferta', icon: 'pricetag', path: '/oferta', color: 'warning' },
     { text: 'Contratos', icon: 'document', path: '/contratos', color: 'success' },
     { text: 'Anticipo', icon: 'cash', path: '/anticipo', color: 'secondary' },
-    { text: 'Firma Notario', icon: 'person', path: '/firma-notario', color: 'primary' }
+    { text: 'Firma Notario', icon: 'person', path: '/firma-notario', color: 'primary' },
   ];
 
   task: Task[] = [];
 
   navigateTo(path: string) {
-    console.log("Presionando: " + path);
+    console.log('Presionando: ' + path);
     this.navCtrl.navigateForward(path);
   }
 
@@ -61,12 +60,11 @@ export class HomeComponent implements OnInit {
       { idEtapa: 6, nombre: 'Firma ante notario (Venta)', valor: 0.9, porcentaje: 90 },
       { idEtapa: 7, nombre: 'Entrega de llaves (Renta)', valor: 0.9, porcentaje: 90 },
       { idEtapa: 8, nombre: 'Finalizar seguimiento', valor: 1, porcentaje: 100 },
-      { idEtapa: 9, nombre: 'Completado', valor: 1, porcentaje: 100 }
+      { idEtapa: 9, nombre: 'Completado', valor: 1, porcentaje: 100 },
     ];
   }
 
   saveTasksToLocalStorage(): void {
     localStorage.setItem('tasks', JSON.stringify(this.task));
   }
-
 }

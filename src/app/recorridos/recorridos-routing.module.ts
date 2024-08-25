@@ -6,12 +6,12 @@ import { RecorridosComponent } from '@app/recorridos/recorridos.component';
 const routes: Routes = [
   Shell.childRoutes([
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'recorridos', component: RecorridosComponent }
-  ])
+    { path: 'recorridos', component: RecorridosComponent },
+  ]),
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RecorridosRoutingModule { }
+export class RecorridosRoutingModule {}

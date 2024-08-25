@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { SeguimientoRoutingModule } from './seguimiento-routing.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    SeguimientoRoutingModule
-  ]
+  imports: [CommonModule, SeguimientoRoutingModule],
 })
-export class SeguimientoModule { }
+export class SeguimientoModule {}

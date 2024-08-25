@@ -4,7 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
-
 import { I18nModule } from '@app/i18n';
 import { ShellComponent } from './shell.component';
 
@@ -14,20 +13,11 @@ describe('ShellComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        TranslateModule.forRoot(),
-        I18nModule,
-        IonicModule.forRoot(),
-        RouterTestingModule
-      ],
-      providers: [
-      ],
+      imports: [TranslateModule.forRoot(), I18nModule, IonicModule.forRoot(), RouterTestingModule],
+      providers: [],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      declarations: [
-        ShellComponent
-      ]
-  })
-    .compileComponents();
+      declarations: [ShellComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

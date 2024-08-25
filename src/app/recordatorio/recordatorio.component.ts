@@ -4,17 +4,15 @@ import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-recordatorio',
   templateUrl: './recordatorio.component.html',
-  styleUrls: ['./recordatorio.component.scss']
+  styleUrls: ['./recordatorio.component.scss'],
 })
 export class RecordatorioComponent implements OnInit {
+  selectedDate: string = '';
+  public name: string = '';
 
-  selectedDate: string = "";
-  public name: string = "";
+  constructor(private modalController: ModalController) {}
 
-  constructor(private modalController: ModalController) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   dismiss() {
     this.modalController.dismiss();
@@ -22,12 +20,11 @@ export class RecordatorioComponent implements OnInit {
 
   confirm() {
     this.modalController.dismiss({
-      selectedDate: new Date(this.selectedDate)
+      selectedDate: new Date(this.selectedDate),
     });
   }
 
   cancel() {
     this.modalController.dismiss(null, 'cancel');
   }
-
 }

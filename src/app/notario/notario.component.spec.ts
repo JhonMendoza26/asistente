@@ -8,9 +8,8 @@ describe('NotarioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotarioComponent ]
-    })
-    .compileComponents();
+      declarations: [NotarioComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NotarioComponent);
     component = fixture.componentInstance;

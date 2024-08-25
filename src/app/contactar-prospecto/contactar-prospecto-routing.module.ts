@@ -6,12 +6,12 @@ import { ContactarProspectoComponent } from '@app/contactar-prospecto/contactar-
 const routes: Routes = [
   Shell.childRoutes([
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'contactar-prospecto/:id', component: ContactarProspectoComponent }
-  ])
+    { path: 'contactar-prospecto/:id', component: ContactarProspectoComponent },
+  ]),
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ContactarProspectoRoutingModule { }
+export class ContactarProspectoRoutingModule {}

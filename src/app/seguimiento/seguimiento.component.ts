@@ -9,19 +9,20 @@ import { AsistenteVirtualConstants } from '@app/constants/asistente-virtual';
 @Component({
   selector: 'app-seguimiento',
   templateUrl: './seguimiento.component.html',
-  styleUrls: ['./seguimiento.component.scss']
+  styleUrls: ['./seguimiento.component.scss'],
 })
 export class SeguimientoComponent implements OnInit {
-
   totalUsers: number = 0;
 
   contacts: Contacto[] = [];
 
   public resultContacts: Contacto[] = [...this.contacts];
 
-  constructor(private route: ActivatedRoute, private asistenteVirtualService: AsistenteVirtualService,
-              private navCtrl: NavController) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private asistenteVirtualService: AsistenteVirtualService,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
     this.obtenerProspectoByEtapa();
@@ -44,11 +45,10 @@ export class SeguimientoComponent implements OnInit {
     this.navCtrl.navigateForward(`/contactar-prospecto/${idContacto}`);
   }
 
-  filtrarProspecto(event:any): void {
+  filtrarProspecto(event: any): void {
     const query = event.target.value.toLowerCase();
     this.resultContacts = this.contacts.filter((contact: Contacto) => {
       return contact.nombre.toLowerCase().indexOf(query) > -1;
     });
   }
-
 }

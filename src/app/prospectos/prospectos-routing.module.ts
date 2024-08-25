@@ -6,13 +6,13 @@ import { Shell } from '@app/shell/shell.service';
 const routes: Routes = [
   Shell.childRoutes([
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'prospectos', component: ProspectosComponent }
-  ])
+    { path: 'prospectos', component: ProspectosComponent },
+  ]),
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: []
+  providers: [],
 })
-export class ProspectosRoutingModule { }
+export class ProspectosRoutingModule {}

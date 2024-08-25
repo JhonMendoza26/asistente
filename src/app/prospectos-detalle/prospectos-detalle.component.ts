@@ -6,7 +6,7 @@ import { Contacto } from '@app/interface/contacto';
 @Component({
   selector: 'app-prospectos-detalle',
   templateUrl: './prospectos-detalle.component.html',
-  styleUrls: ['./prospectos-detalle.component.scss']
+  styleUrls: ['./prospectos-detalle.component.scss'],
 })
 export class ProspectosDetalleComponent implements OnInit {
   contact: Contacto = {
@@ -21,12 +21,13 @@ export class ProspectosDetalleComponent implements OnInit {
     nombre: '',
     telefono: 0,
     isInactivo: false,
-    fecha: new Date()
+    fecha: new Date(),
   };
   isNewContact: boolean = false;
 
   constructor(
-    private route: ActivatedRoute, private navCtrl: NavController,
+    private route: ActivatedRoute,
+    private navCtrl: NavController,
     private alertController: AlertController
   ) {}
 
@@ -36,7 +37,7 @@ export class ProspectosDetalleComponent implements OnInit {
       this.isNewContact = true;
     } else if (contactId) {
       const contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
-      this.contact = contacts.find(contact => contact.idContacto === parseInt(contactId)) || this.contact;
+      this.contact = contacts.find((contact) => contact.idContacto === parseInt(contactId)) || this.contact;
     }
   }
 
@@ -50,8 +51,8 @@ export class ProspectosDetalleComponent implements OnInit {
 
   formatPhoneNumber(phone: number): string {
     const cleaned = phone.toString().replace(/[^0-9]/g, '');
-    const areaCode = cleaned.slice(0,3);
-    const localNumber = cleaned.slice(3,6) + '-' + cleaned.slice(6,10);
+    const areaCode = cleaned.slice(0, 3);
+    const localNumber = cleaned.slice(3, 6) + '-' + cleaned.slice(6, 10);
 
     return `(${areaCode}) ${localNumber}`;
   }
@@ -61,50 +62,40 @@ export class ProspectosDetalleComponent implements OnInit {
     @param contact - Objeto que contiene la informacion del contacto
     @return Contacto eliminado
   */
-    deleteContact(contact: Contacto) {
-      let contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
-      contacts = contacts.filter(item => item.idContacto !== contact.idContacto);
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-      this.navCtrl.navigateBack('/prospectos');
-    }
+  deleteContact(contact: Contacto) {
+    let contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
+    contacts = contacts.filter((item) => item.idContacto !== contact.idContacto);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+    this.navCtrl.navigateBack('/prospectos');
+  }
 
   /*
     TODO: Alerta para confirmar la eliminación del contacto
     @param contact Objeto que contiene la informacion del contacto
   */
-    async deleteContactAlert(contact: Contacto) {
-      const alert = await this.alertController.create({
-        header: 'Confirmar',
-        message: '¿Estás seguro de eliminar el contacto?',
-        buttons: [
-          {
-            text: 'Cancelar',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: () => {
-              console.log('Confirmar Cancelar');
-            }
-          }, {
-            text: 'Eliminar',
-            handler: () => {
-              this.deleteContact(contact);
-            }
-          }
-        ]
-      });
-      await alert.present();
-    }
-
-
-
-
-
-
-
-
-
-
-
+  async deleteContactAlert(contact: Contacto) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar',
+      message: '¿Estás seguro de eliminar el contacto?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirmar Cancelar');
+          },
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            this.deleteContact(contact);
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
 
   openWhatsApp(contact: any) {
     // Lógica para abrir WhatsApp
@@ -113,5 +104,4 @@ export class ProspectosDetalleComponent implements OnInit {
   sendEmail(contact: any) {
     // Lógica para enviar email
   }
-
 }

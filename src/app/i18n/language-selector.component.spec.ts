@@ -12,15 +12,11 @@ describe('LanguageSelectorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-        imports: [
-          TranslateModule.forRoot(),
-          IonicModule.forRoot()
-        ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        declarations: [LanguageSelectorComponent],
-        providers: [I18nService]
-      })
-      .compileComponents();
+      imports: [TranslateModule.forRoot(), IonicModule.forRoot()],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [LanguageSelectorComponent],
+      providers: [I18nService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

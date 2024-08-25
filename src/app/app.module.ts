@@ -59,26 +59,41 @@ import { RecordatorioModule } from '@app/recordatorio/recordatorio.module';
     SeguimientoModule,
     OfertaModule,
     RecordatorioModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  declarations: [AppComponent, ProspectosComponent, ProspectosDetalleComponent, ProspectosEditarComponent, ProspectosSeguimientoComponent, RecorridosComponent, ContactarProspectoComponent, SeguimientoComponent, OfertaComponent, ContratosComponent, AnticiposComponent, NotarioComponent, LlavesComponent, RecordatorioComponent],
+  declarations: [
+    AppComponent,
+    ProspectosComponent,
+    ProspectosDetalleComponent,
+    ProspectosEditarComponent,
+    ProspectosSeguimientoComponent,
+    RecorridosComponent,
+    ContactarProspectoComponent,
+    SeguimientoComponent,
+    OfertaComponent,
+    ContratosComponent,
+    AnticiposComponent,
+    NotarioComponent,
+    LlavesComponent,
+    RecordatorioComponent,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiPrefixInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorHandlerInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: RouteReuseStrategy,
-      useClass: RouteReusableStrategy
+      useClass: RouteReusableStrategy,
     },
-    AlertController
+    AlertController,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

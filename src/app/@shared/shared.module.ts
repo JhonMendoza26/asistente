@@ -6,16 +6,8 @@ import { IonicModule } from '@ionic/angular';
 import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    TranslateModule,
-    CommonModule
-  ],
-  declarations: [
-    LoaderComponent
-  ],
-  exports: [
-    LoaderComponent
-  ]
+  imports: [IonicModule, TranslateModule, CommonModule],
+  declarations: [LoaderComponent],
+  exports: [LoaderComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

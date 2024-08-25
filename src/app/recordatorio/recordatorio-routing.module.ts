@@ -6,12 +6,12 @@ import { RecordatorioComponent } from '@app/recordatorio/recordatorio.component'
 const routes: Routes = [
   Shell.childRoutes([
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'recordatorio', component: RecordatorioComponent }
-  ])
+    { path: 'recordatorio', component: RecordatorioComponent },
+  ]),
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RecordatorioRoutingModule { }
+export class RecordatorioRoutingModule {}

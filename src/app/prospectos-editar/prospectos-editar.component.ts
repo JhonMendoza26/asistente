@@ -6,10 +6,9 @@ import { Contacto } from '@app/interface/contacto';
 @Component({
   selector: 'app-prospectos-editar',
   templateUrl: './prospectos-editar.component.html',
-  styleUrls: ['./prospectos-editar.component.scss']
+  styleUrls: ['./prospectos-editar.component.scss'],
 })
 export class ProspectosEditarComponent implements OnInit {
-
   contact: Contacto = {
     apellidoMaterno: '',
     apellidoPaterno: '',
@@ -22,27 +21,28 @@ export class ProspectosEditarComponent implements OnInit {
     nombre: '',
     telefono: 0,
     isInactivo: false,
-    fecha: new Date()
+    fecha: new Date(),
   };
   isNewContact: boolean = false;
   @Output() contactSaved = new EventEmitter<void>();
 
   constructor(
-    private route: ActivatedRoute, private navCtrl: NavController,
+    private route: ActivatedRoute,
+    private navCtrl: NavController,
     private alertController: AlertController
   ) {}
 
   ngOnInit() {
-    try{
+    try {
       const contactId = this.route.snapshot.paramMap.get('id');
       if (contactId === 'new') {
         this.isNewContact = true;
       } else if (contactId) {
         const contacts: Contacto[] = JSON.parse(localStorage.getItem('contacts') || '[]');
-        this.contact = contacts.find(contact => parseInt(contactId) === contact.idContacto) || this.contact;
+        this.contact = contacts.find((contact) => parseInt(contactId) === contact.idContacto) || this.contact;
       }
-    }catch (error) {
-      console.error("Error al consultar datos de usuario: ",error);
+    } catch (error) {
+      console.error('Error al consultar datos de usuario: ', error);
     }
   }
 
@@ -56,7 +56,7 @@ export class ProspectosEditarComponent implements OnInit {
       this.contact.idContacto = parseInt(new Date().getTime().toString());
       contacts.push(this.contact);
     } else {
-      contacts = contacts.map(contact => contact.idContacto === this.contact.idContacto ? this.contact : contact);
+      contacts = contacts.map((contact) => (contact.idContacto === this.contact.idContacto ? this.contact : contact));
     }
     localStorage.setItem('contacts', JSON.stringify(contacts));
     this.contactSaved.emit();
@@ -74,17 +74,17 @@ export class ProspectosEditarComponent implements OnInit {
           cssClass: 'secondary',
           handler: () => {
             console.log('Confirmar Cancelar');
-          }
-        }, {
+          },
+        },
+        {
           text: 'Guardar',
           handler: () => {
             this.saveContact();
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
 
     await alert.present();
   }
-
 }

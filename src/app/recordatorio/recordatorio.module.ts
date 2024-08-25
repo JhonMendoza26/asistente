@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { RecordatorioRoutingModule } from './recordatorio-routing.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RecordatorioRoutingModule
-  ]
+  imports: [CommonModule, RecordatorioRoutingModule],
 })
-export class RecordatorioModule { }
+export class RecordatorioModule {}

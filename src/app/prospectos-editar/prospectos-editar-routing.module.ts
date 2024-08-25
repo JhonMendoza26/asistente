@@ -7,12 +7,12 @@ const routes: Routes = [
   Shell.childRoutes([
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'prospecto-editar/:id', component: ProspectosEditarComponent },
-    { path: 'prospecto-editar/new', component: ProspectosEditarComponent }
-  ])
+    { path: 'prospecto-editar/new', component: ProspectosEditarComponent },
+  ]),
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProspectosEditarRoutingModule { }
+export class ProspectosEditarRoutingModule {}

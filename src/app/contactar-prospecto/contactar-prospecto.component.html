@@ -1,30 +1,65 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button>Atras</ion-back-button>
+      <ion-back-button>Back</ion-back-button>
     </ion-buttons>
-    <ion-title>Contactar Prospecto</ion-title>
+    <ion-title>Contactar Cliente</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content color="light" class="ion-padding">
   <ion-list [inset]="true">
-    <ion-item [button]="true" (click)="selectMessage('Hola! Tendras un tiempo para darle seguimiento a tu compra')">
-      <ion-label>Hola! Tendras un tiempo para darle seguimiento a tu compra</ion-label>
-    </ion-item>
-    <ion-item [button]="true" (click)="selectMessage('Buenas Fulanito, solo para darle seguimiento a tu compra')">
-      <ion-label>Buenas Fulanito, solo para darle seguimiento a tu compra</ion-label>
-    </ion-item>
-    <ion-item [button]="true" (click)="selectMessage('Hola! Quisiera saber si aun sigues interesado en la compra')">
-      <ion-label>Hola! Quisiera saber si aun sigues interesado en la compra</ion-label>
-    </ion-item>
-    <ion-item [button]="true" (click)="selectMessage('Mensaje 4')">
-      <ion-label>Mensaje 4</ion-label>
-    </ion-item>
-    <ion-item [button]="true" (click)="selectMessage('Mensaje 5')">
-      <ion-label>Mensaje 5</ion-label>
-    </ion-item>
+    <ng-container *ngIf="customMessages.length > 0; else noMessages">
+      <ion-item-sliding *ngFor="let message of customMessages; let i = index" #slidingItem>
+        <ion-item [button]="true">
+          <ion-label>{{ message.text }}</ion-label>
+        </ion-item>
+        <ion-item-options slot="end">
+          <ion-item-option color="success" (click)="seleccionarMensaje(message.text)">
+            <ion-icon slot="icon-only" name="thumbs-up-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="warning" (click)="toggleEditInput(i, slidingItem)">
+            <ion-icon slot="icon-only" name="share"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" expandable="true" (click)="confirmDeleteMessage(i)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item *ngIf="message.isEditing">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-textarea rows="5" [(ngModel)]="message.text"></ion-textarea>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button expand="block" (click)="confirmEditMessage(i)">Confirmar</ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button expand="block" color="light" (click)="cancelEditMessage(i)">Cancelar</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-item-sliding>
+    </ng-container>
   </ion-list>
+  <ng-template #noMessages>
+    <span> Aún no tienes mensajes personalizados. Intenta agregando uno. </span>
+  </ng-template>
+
+  <ion-item *ngIf="isAddingNewMessage">
+    <ion-input placeholder="Nuevo mensaje" [(ngModel)]="newMessageText"></ion-input>
+  </ion-item>
+  <ion-button
+    [expand]="!isAddingNewMessage ? 'block' : undefined"
+    (click)="isAddingNewMessage ? addMessage() : enableAddMessage()"
+  >
+    <ion-icon *ngIf="!isAddingNewMessage" name="add-outline"></ion-icon>
+    {{ isAddingNewMessage ? 'Guardar' : 'Agregar mensaje' }}
+  </ion-button>
+  <ion-button *ngIf="isAddingNewMessage" (click)="cancelAddMessage()" color="danger">Cancelar</ion-button>
 
   <ion-list [inset]="true">
     <ion-item>
@@ -39,6 +74,5 @@
     </ion-note>
   </div>
 
-  <ion-button  id="open-toast" expand="block" (click)="goToSendMessage()">Enviar mensaje</ion-button>
-
+  <ion-button id="open-toast" expand="block" (click)="goToSendMessage()">Enviar mensaje</ion-button>
 </ion-content>

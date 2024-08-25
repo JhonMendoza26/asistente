@@ -7,12 +7,12 @@ import { Shell } from '@app/shell/shell.service';
 const routes: Routes = [
   Shell.childRoutes([
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'seguimiento', component: SeguimientoComponent, data: { title: marker('Seguimiento') } }
-  ])
+    { path: 'seguimiento', component: SeguimientoComponent, data: { title: marker('Seguimiento') } },
+  ]),
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SeguimientoRoutingModule { }
+export class SeguimientoRoutingModule {}

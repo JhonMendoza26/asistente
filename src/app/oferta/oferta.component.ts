@@ -9,17 +9,18 @@ import { AsistenteVirtualConstants } from '@app/constants/asistente-virtual';
 @Component({
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
-  styleUrls: ['./oferta.component.scss']
+  styleUrls: ['./oferta.component.scss'],
 })
 export class OfertaComponent implements OnInit {
-
   totalUsers: number = 0;
 
   contacts: Contacto[] = [];
 
-  constructor(private route: ActivatedRoute, private asistenteVirtualService: AsistenteVirtualService,
-              private navCtrl: NavController) {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private asistenteVirtualService: AsistenteVirtualService,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
     this.obtenerProspectoByEtapa();
@@ -40,5 +41,4 @@ export class OfertaComponent implements OnInit {
   contactarProspecto(idContacto: number): void {
     this.navCtrl.navigateForward(`/contactar-prospecto/${idContacto}`);
   }
-
 }

@@ -4,11 +4,11 @@ import { OfertaComponent } from '@app/oferta/oferta.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'oferta', component: OfertaComponent }
+  { path: 'oferta', component: OfertaComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class OfertaRoutingModule { }
+export class OfertaRoutingModule {}

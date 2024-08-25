@@ -9,16 +9,7 @@ import { HomeComponent } from './home.component';
 import { ProspectosRoutingModule } from '@app/prospectos/prospectos-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    SharedModule,
-    IonicModule,
-    HomeRoutingModule,
-    ProspectosRoutingModule
-  ],
-  declarations: [
-    HomeComponent
-  ]
+  imports: [CommonModule, TranslateModule, SharedModule, IonicModule, HomeRoutingModule, ProspectosRoutingModule],
+  declarations: [HomeComponent],
 })
-export class HomeModule { }
+export class HomeModule {}

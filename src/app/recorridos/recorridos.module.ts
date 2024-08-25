@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { RecorridosRoutingModule } from './recorridos-routing.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RecorridosRoutingModule
-  ]
+  imports: [CommonModule, RecorridosRoutingModule],
 })
-export class RecorridosModule { }
+export class RecorridosModule {}

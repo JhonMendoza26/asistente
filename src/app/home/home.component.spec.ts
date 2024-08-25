@@ -13,16 +13,11 @@ describe('HomeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-        imports: [
-          IonicModule.forRoot(),
-          SharedModule,
-          HttpClientTestingModule
-        ],
-        schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        declarations: [HomeComponent],
-        providers: [QuoteService]
-      })
-      .compileComponents();
+      imports: [IonicModule.forRoot(), SharedModule, HttpClientTestingModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      declarations: [HomeComponent],
+      providers: [QuoteService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

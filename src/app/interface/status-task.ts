@@ -1,7 +1,7 @@
 export interface StatusTask {
   //Estatus anterior
   backStatusID: number;
-  backStatusName: string
+  backStatusName: string;
   //Estatus actual
   currentStatusID: number;
   currentStatusName: string;

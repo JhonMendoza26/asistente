@@ -6,7 +6,7 @@
   <ion-item *ngSwitchCase="'select'" [ngClass]="itemClass">
     <ion-label><span translate>Language</span></ion-label>
     <ion-select [ngModel]="currentLanguage" (ngModelChange)="setLanguage($event)" interface="popover">
-      <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
+      <ion-select-option *ngFor="let language of languages" [value]="language">{{ language }}</ion-select-option>
     </ion-select>
   </ion-item>
 
