@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1724621999056,
+  "timestamp": 1727848327853,
   "index": "https://JhonMendoza26.github.io/asistente/index.html",
   "assetGroups": [
     {
@@ -70,13 +70,13 @@
         "https://JhonMendoza26.github.io/asistente/common.8179ed24edf04195.js",
         "https://JhonMendoza26.github.io/asistente/favicon.ico",
         "https://JhonMendoza26.github.io/asistente/index.html",
-        "https://JhonMendoza26.github.io/asistente/main.5829d01944a82480.js",
+        "https://JhonMendoza26.github.io/asistente/main.7ccdde7a3def5048.js",
         "https://JhonMendoza26.github.io/asistente/manifest.webmanifest",
         "https://JhonMendoza26.github.io/asistente/polyfills-core-js.d5a9bf31ecc9c1b3.js",
         "https://JhonMendoza26.github.io/asistente/polyfills-dom.3f9d11e4723a6cf6.js",
         "https://JhonMendoza26.github.io/asistente/polyfills.1eee783b5a3919ea.js",
         "https://JhonMendoza26.github.io/asistente/runtime.0313771435eb0d9f.js",
-        "https://JhonMendoza26.github.io/asistente/styles.e28d30556da1896a.css"
+        "https://JhonMendoza26.github.io/asistente/styles.d01386dda601e6a4.css"
       ],
       "patterns": []
     },
@@ -89,6 +89,18 @@
       },
       "urls": [
         "https://JhonMendoza26.github.io/asistente/apple-touch-icon.png",
+        "https://JhonMendoza26.github.io/asistente/assets/img/arrowLeft.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/contract.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/dinner.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/edit.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/greetings.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/ktoHouse.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/label.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/notice.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/perfil.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/person.png",
+        "https://JhonMendoza26.github.io/asistente/assets/img/run-person.svg",
+        "https://JhonMendoza26.github.io/asistente/assets/img/user.svg",
         "https://JhonMendoza26.github.io/asistente/assets/img/user1.png",
         "https://JhonMendoza26.github.io/asistente/assets/img/user2.png",
         "https://JhonMendoza26.github.io/asistente/assets/img/user3.png",
@@ -158,6 +170,18 @@
     "https://JhonMendoza26.github.io/asistente/9922.d4af57ba79240cdf.js": "c3a3a7ec6e6be79450069da1d57468e1b923eaf8",
     "https://JhonMendoza26.github.io/asistente/9958.70ae7f883b346ca4.js": "19a6a4ef378f474a759c6de77cc798db1d430034",
     "https://JhonMendoza26.github.io/asistente/apple-touch-icon.png": "229df2094cc590088de00ea97a1eb4e4493101d2",
+    "https://JhonMendoza26.github.io/asistente/assets/img/arrowLeft.svg": "bafe159595d40868d344c02ec451d57d8a220e39",
+    "https://JhonMendoza26.github.io/asistente/assets/img/contract.svg": "f0be1d0a2db886f7fee68a3ecfe69472cf02abf4",
+    "https://JhonMendoza26.github.io/asistente/assets/img/dinner.svg": "c7f64b05153dfcca21abbd48ca76a9f04bc5bee9",
+    "https://JhonMendoza26.github.io/asistente/assets/img/edit.svg": "e690ed2b5b219a2f1778ff7d542248a58019c172",
+    "https://JhonMendoza26.github.io/asistente/assets/img/greetings.svg": "dca6d26915b41c15b3ea4f93af656044ddbb152d",
+    "https://JhonMendoza26.github.io/asistente/assets/img/ktoHouse.svg": "bb945b8d4dc4170644d12d362214cadee4fb1f6f",
+    "https://JhonMendoza26.github.io/asistente/assets/img/label.svg": "e6904b146efcd69d9b8d060d66c0a58e14c954bd",
+    "https://JhonMendoza26.github.io/asistente/assets/img/notice.svg": "896c5f93a34fe6318bb051ce0c8ce73c3cabcff2",
+    "https://JhonMendoza26.github.io/asistente/assets/img/perfil.svg": "078ee0db3a0794ecf7b55a3cb91b6c1fa7b03397",
+    "https://JhonMendoza26.github.io/asistente/assets/img/person.png": "371d97eafcab538c360971efa9c684d004694cd3",
+    "https://JhonMendoza26.github.io/asistente/assets/img/run-person.svg": "3cbf3e84e6f690ba43ef5c5edb757e98a95d126b",
+    "https://JhonMendoza26.github.io/asistente/assets/img/user.svg": "c02ca0ca6209d1235266ae09cb909e4e8b0cc9fb",
     "https://JhonMendoza26.github.io/asistente/assets/img/user1.png": "42c44170a4daf19f16b120e2f439124b0e936262",
     "https://JhonMendoza26.github.io/asistente/assets/img/user2.png": "09e9cc20b0d69a6e8ef2916f4c749d19d339f106",
     "https://JhonMendoza26.github.io/asistente/assets/img/user3.png": "ead430fa495d054864e72e422558f67a9599d669",
@@ -166,14 +190,14 @@
     "https://JhonMendoza26.github.io/asistente/assets/ngx-rocket-logo@192.png": "461b730f9c6dc818f8af9acbe62dfde24dc02d7a",
     "https://JhonMendoza26.github.io/asistente/common.8179ed24edf04195.js": "1eec3799cfaa909a266460807d94396d8b74122d",
     "https://JhonMendoza26.github.io/asistente/favicon.ico": "b65083d46bbf63692d5d2cdd69622e6d7ecae317",
-    "https://JhonMendoza26.github.io/asistente/index.html": "94037d1c3db24f22e71db534529d3bfa914bbf8e",
-    "https://JhonMendoza26.github.io/asistente/main.5829d01944a82480.js": "eac9b17048ffa74f10905b6f780bc770080fa10c",
+    "https://JhonMendoza26.github.io/asistente/index.html": "9c0115879b2675c29bb894ad55981bc201b1ca0c",
+    "https://JhonMendoza26.github.io/asistente/main.7ccdde7a3def5048.js": "a60a639fd138f1291ef935ebfb482e5339adbb46",
     "https://JhonMendoza26.github.io/asistente/manifest.webmanifest": "73d6631db76ce0cf8dcd809df09e9a1f5c20fb68",
     "https://JhonMendoza26.github.io/asistente/polyfills-core-js.d5a9bf31ecc9c1b3.js": "63d6b58caf4a1c2f999340d4edb0e667af3bf3d2",
     "https://JhonMendoza26.github.io/asistente/polyfills-dom.3f9d11e4723a6cf6.js": "2b8ed8c5fac2498661fc3983a650349d6148ff6f",
     "https://JhonMendoza26.github.io/asistente/polyfills.1eee783b5a3919ea.js": "bc60071cf6a07d75959ea085143e6c56c78b8c11",
     "https://JhonMendoza26.github.io/asistente/runtime.0313771435eb0d9f.js": "029038d4a556be09b20ff5a221897ed9d7a871f1",
-    "https://JhonMendoza26.github.io/asistente/styles.e28d30556da1896a.css": "e6a0342a16fadbc787527a88a7a63913ee21b7a8"
+    "https://JhonMendoza26.github.io/asistente/styles.d01386dda601e6a4.css": "6ed262176e74c9f012bb4003317905fbe3597415"
   },
   "navigationUrls": [
     {
